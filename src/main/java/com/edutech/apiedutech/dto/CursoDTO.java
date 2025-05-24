@@ -3,6 +3,7 @@ package com.edutech.apiedutech.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CursoDTO {
        private String sigla;
        private String nombre;
