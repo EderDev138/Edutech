@@ -25,12 +25,6 @@ public class CursoService {
 
     //almacenar con dto
 
-
-
-
-
-
-
     public List<Curso> listar() {
         return cursoRepository.findAll();
     }

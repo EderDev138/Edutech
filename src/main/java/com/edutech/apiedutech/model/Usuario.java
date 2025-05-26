@@ -29,6 +29,8 @@ public class Usuario {
     @JsonBackReference
     private List<Curso> cursos;
     
+   
+
     public Usuario(){
         this.rut = "";
         this.nombre = "";
