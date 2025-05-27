@@ -3,10 +3,11 @@ package com.edutech.apiedutech.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.model.Profesor;
 import com.edutech.apiedutech.repository.ProfesorRepository;
-
+@Service
 public class ProfesorService{
     @Autowired
     private ProfesorRepository profesorRepository;
