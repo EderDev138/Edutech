@@ -1,6 +1,7 @@
 package com.edutech.apiedutech.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.edutech.apiedutech.dto.AsignacionProfesorDTO;
+import com.edutech.apiedutech.dto.ProfesorDTO;
+import com.edutech.apiedutech.model.Curso;
 import com.edutech.apiedutech.model.Profesor;
 import com.edutech.apiedutech.service.ProfesorService;
 
@@ -29,19 +33,43 @@ public class ProfesorController {
         
         return profesorService.registrarProfesor(profesor);
     }
-
-    @GetMapping()
-    public List<Profesor> listar() {
-        return profesorService.listar();
-    }
-    
-    @PostMapping("/asignarcurso/{rut}/{sigla}")	
+      @PostMapping("/asignarcurso/{rut}/{sigla}")	
     public String asignarCurso(@PathVariable String rut, @PathVariable String sigla) {
        
             return profesorService.asignarCurso(rut, sigla);
         
         
     }
+
+    @PostMapping("/asignarcurso")
+    public String asignarCurso(@RequestBody AsignacionProfesorDTO dto) {
+    return profesorService.asignarCurso(dto.getRut(), dto.getSigla());
+}
+
+    @GetMapping()
+    public List<Profesor> listar() {
+        return profesorService.listar();
+    }
+
+
+    @GetMapping("/listar")
+    public List<ProfesorDTO> listarProfesorDTO() {
+    return profesorService.listar().stream().map(profesor -> {
+        ProfesorDTO dto = new ProfesorDTO();
+        dto.setRut(profesor.getRut());
+        dto.setNombre(profesor.getNombre());
+        dto.setCursos(
+            profesor.getCursos().stream()
+                .map(Curso::getSigla)
+                .collect(Collectors.toList())
+        );
+        return dto;
+    }).collect(Collectors.toList());
+    }
+    
+  
+
+    
     
     }
     
