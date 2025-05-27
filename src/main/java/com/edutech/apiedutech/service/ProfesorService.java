@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.edutech.apiedutech.model.Profesor;
-
 import com.edutech.apiedutech.repository.ProfesorRepository;
 
 public class ProfesorService{
@@ -14,7 +13,7 @@ public class ProfesorService{
 
     public String registrarProfesor(Profesor profesor) {
         if (profesorRepository.findById(profesor.getRut()).isPresent()) {
-            return "El usuario con RUT " + profesor.getRut() + " ya existe.";
+            return "El profesor con RUT " + profesor.getRut() + " ya existe.";
         }
 
         profesorRepository.save(profesor);
