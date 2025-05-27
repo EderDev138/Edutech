@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.apiedutech.model.Profesor;
@@ -31,14 +31,22 @@ public class ProfesorController {
     }
 
     @GetMapping()
-    public List<Profesor> listar(@RequestParam Profesor profesor) {
-        return profesorService.listarProfesor();
+    public List<Profesor> listar() {
+        return profesorService.listar();
     }
     
+    @PostMapping("/asignarcurso/{rut}/{sigla}")	
+    public String asignarCurso(@PathVariable String rut, @PathVariable String sigla) {
+       
+            return profesorService.asignarCurso(rut, sigla);
+        
+        
+    }
+    
+    }
     
 
 
 
 
 
-}

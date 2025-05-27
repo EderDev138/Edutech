@@ -27,7 +27,7 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
         return "Usuario registrado exitosamente.";
     }
-
+    
     public List<Usuario> listar() {
         return usuarioRepository.findAll();
     }

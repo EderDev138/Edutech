@@ -16,8 +16,10 @@ public class Curso {
     private String descripcion;
 
      @ManyToMany(mappedBy="cursos")
+    
     private List<Usuario> usuarios;
     @ManyToMany(mappedBy="cursos")
+ 
     private List<Profesor> profesores;
 
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
