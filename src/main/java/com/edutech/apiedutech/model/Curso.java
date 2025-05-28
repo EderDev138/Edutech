@@ -26,10 +26,6 @@ public class Curso {
     private List<ContenidoCurso> contenidoCurso;
 
     
-
-    
-
-    
    
     public Curso() {   
         this.sigla = "";

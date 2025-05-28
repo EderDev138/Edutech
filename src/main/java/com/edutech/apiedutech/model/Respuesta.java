@@ -16,8 +16,10 @@ public class Respuesta {
     private int UsuarioId;
     private Boolean respuestaUsuario;
     private float puntaje;
+
+
     @ManyToOne
-    @JoinColumn(name = "pregunta_id", nullable = false)
+    @JoinColumn(name = "id_pregunta", nullable = false)
     private Pregunta pregunta;
 
     public Respuesta(){

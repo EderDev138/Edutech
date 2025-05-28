@@ -19,8 +19,10 @@ public class Evaluacion {
     private String descripcion;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
+
+
     @OneToMany(mappedBy = "evaluacion", cascade = CascadeType.ALL)
-    private List<Pregunta> preguntas;
+    private List<Pregunta> pregunta;
     
     
     public Evaluacion(){

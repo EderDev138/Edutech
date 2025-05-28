@@ -22,7 +22,7 @@ public class Usuario {
 
     @ManyToMany
     @JoinTable(
-        name= "usuarios",
+        name= "usuario",
         joinColumns= @JoinColumn(name= "usuario_rut"),
         inverseJoinColumns= @JoinColumn(name= "curso_sigla")
     )
