@@ -16,7 +16,7 @@ public class ContenidoCurso {
 
     private String titulo;
     private String descripcion;
-    private String urlcurso;
+    private String urlContenidoCurso;
 
     @ManyToOne
     @JoinColumn(name = "curso_sigla")
@@ -26,14 +26,14 @@ public class ContenidoCurso {
         this.id = (long) 0;
         this.titulo = "";
         this.descripcion = "";
-        this.urlcurso = "";
+        this.urlContenidoCurso = "";
     }
 
-    public ContenidoCurso(Long id, String titulo, String descripcion, String urlcurso, Curso curso) {
+    public ContenidoCurso(Long id, String titulo, String descripcion, String urlContenidoCurso, Curso curso) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.urlcurso = urlcurso;
+        this.urlContenidoCurso = urlContenidoCurso;
         this.curso = curso;
     }
 
@@ -61,12 +61,12 @@ public class ContenidoCurso {
         this.descripcion = descripcion;
     }
 
-    public String getUrlcurso() {
-        return urlcurso;
+    public String geturlContenidoCurso() {
+        return urlContenidoCurso;
     }
 
-    public void setUrlcurso(String urlcurso) {
-        this.urlcurso = urlcurso;
+    public void seturlContenidoCurso(String urlContenidoCurso) {
+        this.urlContenidoCurso = urlContenidoCurso;
     }
 
     public Curso getCurso() {
