@@ -3,7 +3,8 @@ package com.edutech.apiedutech.dto;
 public class PreguntaDTO {
      private int id;
      private String enunciado;
-     private int evlauacionId;
+     private int evaluacionId;
+     
      public int getId() {
          return id;
      }
@@ -16,12 +17,15 @@ public class PreguntaDTO {
      public void setEnunciado(String enunciado) {
          this.enunciado = enunciado;
      }
-     public int getEvlauacionId() {
-         return evlauacionId;
+     public int getEvaluacionId() {
+         return evaluacionId;
      }
-     public void setEvlauacionId(int evlauacionId) {
-         this.evlauacionId = evlauacionId;
+     public void setEvaluacionId(int evaluacionId) {
+         this.evaluacionId = evaluacionId;
      }
+
+     
+    
 
      
 }
