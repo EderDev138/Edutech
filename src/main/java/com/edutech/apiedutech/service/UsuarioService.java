@@ -3,6 +3,7 @@ package com.edutech.apiedutech.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.model.Curso;
@@ -25,7 +26,7 @@ public class UsuarioService {
         }
 
         usuarioRepository.save(usuario);
-        return "Usuario registrado exitosamente.";
+        return ResponseEntity.ok("Usuario registrado exitosamente.").toString();
     }
     
     public List<Usuario> listar() {

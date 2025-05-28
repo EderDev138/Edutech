@@ -17,19 +17,11 @@ public class Respuesta {
     private Boolean respuestaUsuario;
     private float puntaje;
     @ManyToOne
-    @JoinColumn(name = "pregunta_id", nullable = false)
+    @JoinColumn(name = "pregunta_id", referencedColumnName="pregunta" )
     private Pregunta pregunta;
 
     public Respuesta(){
         
-    }
-
-    public Respuesta(int id, int preguntaId, int usuarioId, Boolean respuestaUsuario, float puntaje) {
-        this.id = id;
-        this.preguntaId = preguntaId;
-        UsuarioId = usuarioId;
-        this.respuestaUsuario = respuestaUsuario;
-        this.puntaje = puntaje;
     }
 
     public int getId() {

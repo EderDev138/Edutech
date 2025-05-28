@@ -31,14 +31,6 @@ public class Evaluacion {
         this.fechaFin = LocalDateTime.now();
     }
 
-    public Evaluacion(int id, String titulo, String descripcion, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-        this.id = id;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-    }
-
     public int getId() {
         return id;
     }
