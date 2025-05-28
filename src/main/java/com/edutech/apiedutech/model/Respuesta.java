@@ -17,7 +17,7 @@ public class Respuesta {
     private Boolean respuestaUsuario;
     private float puntaje;
     @ManyToOne
-    @JoinColumn(name = "pregunta_id", nullable = false)
+    @JoinColumn(name = "pregunta_id", referencedColumnName="pregunta" )
     private Pregunta pregunta;
 
     public Respuesta(){
