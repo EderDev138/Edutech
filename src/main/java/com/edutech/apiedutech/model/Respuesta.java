@@ -19,7 +19,11 @@ public class Respuesta {
 
 
     @ManyToOne
+<<<<<<< HEAD
     @JoinColumn(name = "id_pregunta", nullable = false)
+=======
+    @JoinColumn(name = "pregunta_id", referencedColumnName="pregunta" )
+>>>>>>> 64580dce6806ff50202bcbf336a5c6615c294fb2
     private Pregunta pregunta;
 
     public Respuesta(){
