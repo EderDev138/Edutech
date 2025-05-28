@@ -24,14 +24,6 @@ public class Respuesta {
         
     }
 
-    public Respuesta(int id, int preguntaId, int usuarioId, Boolean respuestaUsuario, float puntaje) {
-        this.id = id;
-        this.preguntaId = preguntaId;
-        UsuarioId = usuarioId;
-        this.respuestaUsuario = respuestaUsuario;
-        this.puntaje = puntaje;
-    }
-
     public int getId() {
         return id;
     }
