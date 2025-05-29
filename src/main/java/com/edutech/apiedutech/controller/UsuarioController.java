@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.edutech.apiedutech.dto.UsuarioDTO;
 import com.edutech.apiedutech.model.Usuario;
 import com.edutech.apiedutech.service.UsuarioService;
 
@@ -31,5 +32,16 @@ public class UsuarioController {
     @GetMapping()
     public List<Usuario> listar() {
         return usuarioService.listarUsuario();
+    }
+
+    @GetMapping("/listar")
+    public List<UsuarioDTO> listarUsuarioDTO() {
+        return usuarioService.listarUsuario().stream().map(usuario -> {
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.setRut(usuario.getRut());
+            dto.setNombre(usuario.getNombre());
+            dto.setApellido(usuario.getApellido());
+            return dto;
+        }).toList();
     }
 }

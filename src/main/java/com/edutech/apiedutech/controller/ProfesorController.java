@@ -33,25 +33,24 @@ public class ProfesorController {
         
         return profesorService.registrarProfesor(profesor);
     }
-      @PostMapping("/asignarcurso/{rut}/{sigla}")	
+    
+    // asignar curso a profesor por url
+    @PostMapping("/asignarcurso/{rut}/{sigla}")	
     public String asignarCurso(@PathVariable String rut, @PathVariable String sigla) {
-       
             return profesorService.asignarCurso(rut, sigla);
-        
-        
     }
-
+    // asignar curso a profesor por RUT y sigla por body con dto
     @PostMapping("/asignarcurso")
     public String asignarCurso(@RequestBody AsignacionProfesorDTO dto) {
     return profesorService.asignarCurso(dto.getRut(), dto.getSigla());
 }
-
+    // listar profesores con cursos
     @GetMapping()
     public List<Profesor> listar() {
         return profesorService.listar();
     }
 
-
+    //listar profesores con DTO
     @GetMapping("/listar")
     public List<ProfesorDTO> listarProfesorDTO() {
     return profesorService.listar().stream().map(profesor -> {

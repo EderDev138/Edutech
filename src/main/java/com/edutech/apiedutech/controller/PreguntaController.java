@@ -1,15 +1,15 @@
 package com.edutech.apiedutech.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.apiedutech.model.Pregunta;
 import com.edutech.apiedutech.service.PreguntaService;
-
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -18,7 +18,7 @@ public class PreguntaController {
     @Autowired
     private PreguntaService preguntaService;
 
-    @PostMapping
+    @PostMapping()
     public String crearPregunta(@RequestBody Pregunta pregunta) {
         return preguntaService.guardarPregunta(pregunta).toString();
 
@@ -30,7 +30,7 @@ public class PreguntaController {
         return preguntaService.eliminarPregunta(id);
     }
 
-    @PostMapping("/listar")
+    @GetMapping("/listar")
     public String listarPreguntas() {
         return preguntaService.listar().toString();
     }
