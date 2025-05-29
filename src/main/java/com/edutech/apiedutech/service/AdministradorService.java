@@ -1,10 +1,12 @@
 package com.edutech.apiedutech.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.edutech.apiedutech.dto.AdministradorDTO;
 import com.edutech.apiedutech.model.Administrador;
 import com.edutech.apiedutech.model.Profesor;
 import com.edutech.apiedutech.model.Usuario;
@@ -63,8 +65,13 @@ public class AdministradorService {
         }
         }
 
-    public List<Administrador> listar(){
-        return administradorRepository.findAll();
+    public List<AdministradorDTO> listar(){
+        return administradorRepository.findAll().stream().map(admin ->{
+            AdministradorDTO admindto = new AdministradorDTO();
+            admindto.setEmail(admin.getEmail());
+            admindto.setNombre(admin.getNombre());
+            return admindto;
+        }).collect(Collectors.toList());
         
     }
 

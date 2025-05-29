@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.edutech.apiedutech.dto.AdministradorDTO;
 import com.edutech.apiedutech.model.Administrador;
 import com.edutech.apiedutech.service.AdministradorService;
 
@@ -41,7 +42,7 @@ public class AdministradorController {
     }
 
     @GetMapping
-    public List<Administrador> listarAdmin(){
+    public List<AdministradorDTO> listarAdmin(){
         return administradorService.listar();
     }
     

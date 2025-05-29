@@ -4,19 +4,15 @@ public class AdministradorDTO {
 
     private String email;
     private String nombre;
-    private String contrasena;
-
     public AdministradorDTO(){
     this.email="";
     this.nombre="";
-    this.contrasena="";
 
     }
 
     public AdministradorDTO(String email, String nombre, String contrasena) {
         this.email = email;
         this.nombre = nombre;
-        this.contrasena = contrasena;
     }
 
 
@@ -36,14 +32,5 @@ public class AdministradorDTO {
         this.nombre = nombre;
     }
 
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    
 
 }
