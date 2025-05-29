@@ -2,6 +2,8 @@ package com.edutech.apiedutech.dto;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.PrePersist;
+
 public class ActualizarIncidenciaDTO {
 
     private String comentario;
@@ -9,6 +11,11 @@ public class ActualizarIncidenciaDTO {
     private String estado;
 
     public ActualizarIncidenciaDTO(){}
+
+    @PrePersist
+    protected void fechaAuto(){
+        this.fechaActualizacion = LocalDateTime.now();
+    }
 
     public ActualizarIncidenciaDTO(String comentario, LocalDateTime fechaActualizacion, String estado) {
         this.comentario = comentario;

@@ -1,6 +1,7 @@
 package com.edutech.apiedutech.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +30,7 @@ public class EvaluacionController {
         return evaluacionService.asignarPregunta(idEvaluacion, idPregunta);
     }
 
-    @PostMapping("eliminar/evaluacion/{idEv}")
+    @DeleteMapping("eliminar/evaluacion/{idEv}")
     public String eliminarEvaluacion(@PathVariable int idEv) {
         return evaluacionService.eliminarEvaluacion(idEv);
     }

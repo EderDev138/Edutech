@@ -25,6 +25,7 @@ public class AdministradorService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+
     public String agregarAdmin(Administrador administrador){
         if(administradorRepository.existsById(administrador.getEmail())){
             return "Email para administrador ya existe, por favor use otro";
@@ -76,4 +77,4 @@ public class AdministradorService {
     }
 
 
-    }
+}

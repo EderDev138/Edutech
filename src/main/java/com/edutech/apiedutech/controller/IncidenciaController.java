@@ -3,6 +3,7 @@ package com.edutech.apiedutech.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.apiedutech.dto.ActualizarIncidenciaDTO;
+import com.edutech.apiedutech.dto.AdministradorIncidenciaDTO;
 import com.edutech.apiedutech.model.Incidencia;
 import com.edutech.apiedutech.service.IncidenciaService;
 
@@ -18,6 +20,7 @@ import com.edutech.apiedutech.service.IncidenciaService;
 @RestController
 @RequestMapping("/incidencias")
 public class IncidenciaController {
+
 
     @Autowired
     IncidenciaService incidenciaService;
@@ -42,9 +45,16 @@ public class IncidenciaController {
         return incidenciaService.actualizaIncidencia(id, nvaIncidencia);
     }
 
-    @PostMapping("/eliminar/{id}")
-    public String eliminarIncidencia(Long id) {
+    @DeleteMapping("/eliminar/{id}")
+    public String eliminarIncidencia(@PathVariable Long id) {
         return incidenciaService.eliminarIncidencia(id);
     }
+
+    @PostMapping("/asignar")
+    public String asignarIncidencia(@RequestBody AdministradorIncidenciaDTO dto){
+        return incidenciaService.asignarIncidencia(dto);
+
+    }
+
 
 }

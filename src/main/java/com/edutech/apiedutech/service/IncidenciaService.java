@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.dto.ActualizarIncidenciaDTO;
+import com.edutech.apiedutech.dto.AdministradorIncidenciaDTO;
+import com.edutech.apiedutech.model.Administrador;
 import com.edutech.apiedutech.model.Incidencia;
+import com.edutech.apiedutech.repository.AdministradorRepository;
 import com.edutech.apiedutech.repository.IncidenciaRepository;
 
 
@@ -15,6 +18,9 @@ public class IncidenciaService {
 
     @Autowired
     IncidenciaRepository incidenciaRepository;
+
+    @Autowired
+    AdministradorRepository administradorRepository;
 
     public String crearIncidencia(Incidencia incidencia){
         incidenciaRepository.save(incidencia);
@@ -53,6 +59,40 @@ public class IncidenciaService {
         }else{
             incidenciaRepository.deleteById(id);
             return "Incidencia eliminada";
+        }
+    }
+
+
+        public String asignarIncidencia(String adminId, Long incidenciaId ){
+        if(!administradorRepository.existsById(adminId)){
+            return "El administrador no existe";
+        }else if(!incidenciaRepository.existsById(incidenciaId)){
+            return "La incidencia no existe";
+        }else{
+            Administrador admin = administradorRepository.findById(adminId).get();
+            Incidencia incidencia = incidenciaRepository.findById(incidenciaId).get();
+            
+            incidencia.setTecnico(admin);
+            incidenciaRepository.save(incidencia);
+
+            return "Incidencia asignada correctamente";
+
+        }
+    }
+        public String asignarIncidencia(AdministradorIncidenciaDTO admin){
+        if(!administradorRepository.existsById(admin.getAdminId())){
+            return "El administrador no existe";
+        }else if(!incidenciaRepository.existsById(admin.getIncidenciaId())){
+            return "La incidencia no existe";
+        }else{
+            Administrador adm = administradorRepository.findById(admin.getAdminId()).get();
+            Incidencia incidencia = incidenciaRepository.findById(admin.getIncidenciaId()).get();
+            
+            incidencia.setTecnico(adm);
+            incidenciaRepository.save(incidencia);
+
+            return "Incidencia asignada correctamente";
+
         }
     }
 

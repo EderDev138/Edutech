@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 
 /** 
 @author "Encar Portillo";
@@ -38,6 +39,12 @@ public class Incidencia {
     private Curso curso;
 
     public Incidencia(){
+    }
+
+    @PrePersist
+    protected void fechaAuto(){
+        this.fecha = LocalDateTime.now();
+        this.fechaSolucion = LocalDateTime.now();
     }
 
     public Long getId() {

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.apiedutech.model.ContenidoCurso;
 import com.edutech.apiedutech.service.ContenidoCursoService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -32,7 +34,7 @@ public class ContenidoCursoController {
         return contenidoCursoService.almacenarContenido(contenido);
     }
 
-    @PostMapping("/eliminar")
+    @DeleteMapping("/eliminar")
     public String eliminarContenido(Long id){
         return contenidoCursoService.eliminarContenido(id);
     }
