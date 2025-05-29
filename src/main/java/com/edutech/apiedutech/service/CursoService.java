@@ -28,7 +28,7 @@ public class CursoService {
         return "Curso registrado exitosamente";
     }
 
-    //almacenar con dto
+   
 
     public List<Curso> listar() {
         return cursoRepository.findAll();
@@ -52,5 +52,25 @@ public class CursoService {
             return "El contenido " + contenidoCurso.getTitulo() + " ha sido almacenado";
         }
 
+    }
+
+
+    public String eliminar(String sigla) {
+        if (cursoRepository.existsById(sigla)) {
+            cursoRepository.deleteById(sigla);
+            return "Curso eliminado exitosamente";
+        } else {
+            return "El curso con sigla " + sigla + " no existe.";
+        }
+    }
+
+    public String actualizar(String sigla, Curso curso) {
+        if (cursoRepository.existsById(sigla)) {
+            curso.setSigla(sigla);
+            cursoRepository.save(curso);
+            return "Curso actualizado exitosamente";
+        } else {
+            return "El curso con sigla " + sigla + " no existe.";
+        }
     }
 }
