@@ -48,15 +48,17 @@ public class EvaluacionService {
 
             return "Pregunta agregada correctamente";
 
-
         }
         
     }
 
-    public void eliminarEvaluacion(int id) {
+    public String eliminarEvaluacion(int id) {
         evaluacionRepository.deleteById(id);
+        return "Evaluación eliminada correctamente";
         
     }
+
+    
     
 }
 

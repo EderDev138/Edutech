@@ -65,4 +65,6 @@ public class Pregunta {
     public void setEvaluacion(Evaluacion evaluacion) {
         this.evaluacion = evaluacion;
     }
+
+    
 }
