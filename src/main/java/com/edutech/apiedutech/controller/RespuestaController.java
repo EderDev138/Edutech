@@ -9,7 +9,7 @@ import com.edutech.apiedutech.model.Respuesta;
 import com.edutech.apiedutech.service.RespuestaService;
 
 @RestController
-@RequestMapping("/preguntas")
+@RequestMapping("/respuestas")
 public class RespuestaController {
     @Autowired  
     private RespuestaService respuestaService;  
