@@ -25,6 +25,9 @@ public class Curso {
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContenidoCurso> contenidoCurso;
 
+    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
+    private List<Incidencia> incidenciasRelacionadas;
+
     
    
     public Curso() {   
@@ -91,6 +94,14 @@ public class Curso {
 
     public void setContenidoCurso(List<ContenidoCurso> contenidoCurso) {
         this.contenidoCurso = contenidoCurso;
+    }
+
+    public List<Incidencia> getIncidenciasRelacionadas() {
+        return incidenciasRelacionadas;
+    }
+
+    public void setIncidenciasRelacionadas(List<Incidencia> incidenciasRelacionadas) {
+        this.incidenciasRelacionadas = incidenciasRelacionadas;
     }
 
     

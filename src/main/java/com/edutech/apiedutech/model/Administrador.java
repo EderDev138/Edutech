@@ -1,7 +1,10 @@
 package com.edutech.apiedutech.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Administrador {
@@ -10,10 +13,23 @@ public class Administrador {
     private String nombre;
     private String contrasena;
 
+    @OneToMany(mappedBy = "tecnico")
+    private List<Incidencia> incidenciasAsignadas;
+
     public Administrador(){
         this.email = "";
         this.nombre = "";
         this.contrasena = "";
+    }
+
+
+    public List<Incidencia> getIncidenciasAsignadas() {
+        return incidenciasAsignadas;
+    }
+
+
+    public void setIncidenciasAsignadas(List<Incidencia> incidenciasAsignadas) {
+        this.incidenciasAsignadas = incidenciasAsignadas;
     }
 
 
