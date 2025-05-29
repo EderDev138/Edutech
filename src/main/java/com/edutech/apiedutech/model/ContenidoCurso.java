@@ -29,14 +29,6 @@ public class ContenidoCurso {
         this.urlContenidoCurso = "";
     }
 
-    public ContenidoCurso(Long id, String titulo, String descripcion, String urlContenidoCurso, Curso curso) {
-        this.id = id;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.urlContenidoCurso = urlContenidoCurso;
-        this.curso = curso;
-    }
-
     public Long getId() {
         return id;
     }

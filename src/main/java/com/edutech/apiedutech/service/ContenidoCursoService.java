@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edutech.apiedutech.dto.ContenidoCursoDTO;
 import com.edutech.apiedutech.model.ContenidoCurso;
-import com.edutech.apiedutech.model.Curso;
 import com.edutech.apiedutech.repository.ContenidoCursoRepository;
 import com.edutech.apiedutech.repository.CursoRepository;
 
@@ -24,30 +22,20 @@ public class ContenidoCursoService {
         return contenidoCursoRepository.findAll();        
     }
 
-    public ContenidoCursoDTO almacenarContenidoCursoDTO(ContenidoCursoDTO contenidoCursoDto) {
-        Curso curso = cursoRepository.findById(contenidoCursoDto.getCursoSigla()).orElse(null);
-        if (curso == null) return null;
+    public String almacenarContenido(ContenidoCurso contenido){
+        if (contenidoCursoRepository.existsById(contenido.getId())){
+            return "El curso " + contenido.getTitulo() + " ya existe";
+        }else {
+            contenidoCursoRepository.save(contenido);
+            return "El contenido "+contenido.getTitulo()+" guardado correctamente";
 
-        ContenidoCurso contenido = new ContenidoCurso();
-        contenido.setTitulo(contenidoCursoDto.getTitulo());
-        contenido.setDescripcion(contenidoCursoDto.getDescripcion());
-        contenido.seturlContenidoCurso(contenidoCursoDto.getUrlContenido());
-        contenido.setCurso(curso);
-        
-        
-        return toDTO(contenidoCursoRepository.save(contenido));
+        }
+
     }
 
+
+
     
-    private ContenidoCursoDTO toDTO(ContenidoCurso contenido) {
-        return new ContenidoCursoDTO(
-                contenido.getId(),
-                contenido.getTitulo(),
-                contenido.getDescripcion(),
-                contenido.geturlContenidoCurso(),
-                contenido.getCurso().getSigla()
-        );
-    }
-    
+
 
 }
