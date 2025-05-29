@@ -19,13 +19,17 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;    
     
-    @PostMapping
+    @PostMapping()
     public String almacenar(@RequestBody Usuario usuario) {
+        if (usuario.getRut() == null || usuario.getRut().isEmpty()) {
+            return "El RUT del usuario es obligatorio.";
+        }
+        
         return usuarioService.registrarUsuario(usuario);
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Usuario> listar() {
-        return usuarioService.listar();
+        return usuarioService.listarUsuario();
     }
 }

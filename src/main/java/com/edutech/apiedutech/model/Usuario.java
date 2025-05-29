@@ -1,10 +1,13 @@
 package com.edutech.apiedutech.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -12,7 +15,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
-
 public class Usuario {
     @Id
     private String rut;
@@ -21,37 +23,33 @@ public class Usuario {
     private String email;
     private String contrasena;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade= CascadeType.MERGE)
     @JoinTable(
-        name= "usuario",
-        joinColumns= @JoinColumn(name= "usuario_rut"),
-        inverseJoinColumns= @JoinColumn(name= "curso_sigla")
+        name= "usuarios_cursos",
+        joinColumns=@JoinColumn(name= "usuario_rut",referencedColumnName= "rut"),
+        inverseJoinColumns= @JoinColumn(name= "curso_id",referencedColumnName= "sigla")
     )
     @JsonBackReference
     private List<Curso> cursos;
+<<<<<<< HEAD
 
     @OneToMany(mappedBy = "usuario")
     private List<Incidencia> incidenciasReportadas;
     
    
+=======
+>>>>>>> 7771debe75447f824e329951156475abad327c59
 
-    public Usuario(){
+    public Usuario() {
         this.rut = "";
         this.nombre = "";
-        this.email = "";
         this.apellido = "";
+        this.email = "";
         this.contrasena = "";
+        this.cursos = new ArrayList<>();
     }
 
-    public Usuario(String rut, String nombre, String apellido, String email, String contrasena) {
-        this.rut = rut;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.contrasena = contrasena;
-    }
-
-
+    
     public String getRut() {
         return rut;
     }
@@ -66,6 +64,14 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getEmail() {
@@ -91,13 +97,6 @@ public class Usuario {
     public void setCursos(List<Curso> cursos) {
         this.cursos = cursos;
     }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
+    
+    
     }
