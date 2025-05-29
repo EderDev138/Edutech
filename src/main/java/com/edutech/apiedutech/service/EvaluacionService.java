@@ -4,14 +4,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.model.Evaluacion;
+import com.edutech.apiedutech.model.Pregunta;
 import com.edutech.apiedutech.repository.EvaluacionRepository;
+import com.edutech.apiedutech.repository.PreguntaRepository;
 
+@Service
 public class EvaluacionService {
 
     @Autowired
     private EvaluacionRepository evaluacionRepository;
+
+    @Autowired
+    private PreguntaRepository preguntaRepository;
 
     public List<Evaluacion> listar(){
         return evaluacionRepository.findAll();
@@ -19,16 +26,31 @@ public class EvaluacionService {
     }
     
     public String registrarEvaluacion (Evaluacion evaluacion){
-        if (evaluacionRepository.findById(evaluacion.getId()).isPresent()){
-            return "La Evaluación" + evaluacion.getTitulo() + " ya existe";
+        if(evaluacionRepository.existsById(evaluacion.getId())){
+            return "La evaluación " + evaluacion.getTitulo() + " ya existe";
+        }else{
+            evaluacionRepository.save(evaluacion);
+            return "Evaluación registrada correctamente";
         }
-        evaluacionRepository.save(evaluacion);
-        return ResponseEntity.ok("Evaluación registada existosamente").toString();
+
     }
 
-    public Evaluacion crearEvaluacion(Evaluacion evaluacion) {
-        return evaluacionRepository.save(evaluacion);
-        
+    public String asignarPregunta(int evaluacionId, int preguntaId ){
+        if(!evaluacionRepository.existsById(evaluacionId)){
+            return "La evaluación no existe";
+        }else if(!preguntaRepository.existsById(preguntaId)){
+            return "La pregunta no existe";
+        }else{
+            Evaluacion evaluacion = evaluacionRepository.findById(evaluacionId).get();
+            Pregunta pregunta = preguntaRepository.findById(preguntaId).get();
+            
+            evaluacion.getPregunta().add(pregunta);
+            evaluacionRepository.save(evaluacion);
+
+            return "Pregunta agregada correctamente";
+
+
+        }
     }
 
     

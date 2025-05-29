@@ -73,6 +73,14 @@ public class Evaluacion {
         this.fechaFin = fechaFin;
     }
 
+    public List<Pregunta> getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(List<Pregunta> pregunta) {
+        this.pregunta = pregunta;
+    }
+
     
 
 
