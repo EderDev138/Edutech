@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,12 +33,12 @@ public class IncidenciaController {
     }
 
     @GetMapping("/{id}")    
-    public Incidencia encontrarIncidencia(Long id) {
+    public Incidencia encontrarIncidencia(@PathVariable Long id) {
         return incidenciaService.encontrarIncidencia(id);
 
     }   
     @PostMapping("/actualizar/{id}")
-    public String actualizarIncidencia(Long id, @RequestBody ActualizarIncidenciaDTO nvaIncidencia) {
+    public String actualizarIncidencia(@PathVariable Long id, @RequestBody ActualizarIncidenciaDTO nvaIncidencia) {
         return incidenciaService.actualizaIncidencia(id, nvaIncidencia);
     }
 
