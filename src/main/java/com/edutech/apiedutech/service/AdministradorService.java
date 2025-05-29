@@ -1,5 +1,7 @@
 package com.edutech.apiedutech.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +62,11 @@ public class AdministradorService {
             return "Profesor "+profesor.getNombre()+" eliminado";
         }
         }
+
+    public List<Administrador> listar(){
+        return administradorRepository.findAll();
+        
+    }
 
 
     }
