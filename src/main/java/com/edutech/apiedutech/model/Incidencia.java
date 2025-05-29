@@ -9,6 +9,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+/** 
+@author "Encar Portillo";
+*/
+
 @Entity
 public class Incidencia {
 

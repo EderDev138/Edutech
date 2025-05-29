@@ -4,6 +4,9 @@ package com.edutech.apiedutech.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+/** 
+@author "Dayana Vega"
+*/
 @Entity
 public class Pregunta {
     @Id

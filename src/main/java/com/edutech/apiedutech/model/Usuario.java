@@ -14,6 +14,9 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
+/** 
+@author "Eder Valdivia"
+*/
 @Entity
 public class Usuario {
     @Id

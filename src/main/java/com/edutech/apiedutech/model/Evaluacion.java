@@ -9,6 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+/** 
+@author "Dayana Vega"
+*/
 @Entity
 public class Evaluacion {
     @Id
