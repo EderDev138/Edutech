@@ -15,7 +15,6 @@ public class Incidencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private LocalDateTime fecha;
     private String descripcion;
     private String estado;
@@ -23,7 +22,7 @@ public class Incidencia {
     private String comentario;
 
       @ManyToOne
-    @JoinColumn(name = "usuario", referencedColumnName = "rut", nullable = false)
+    @JoinColumn(name = "usuario", referencedColumnName = "rut", nullable = true)
     private Usuario usuario;
 
     @ManyToOne
@@ -31,7 +30,7 @@ public class Incidencia {
     private Administrador tecnico;
 
     @ManyToOne
-    @JoinColumn(name = "curso_relacionado", referencedColumnName = "sigla", nullable = false)
+    @JoinColumn(name = "curso_relacionado", referencedColumnName = "sigla", nullable = true)
     private Curso curso;
 
     public Incidencia(){
