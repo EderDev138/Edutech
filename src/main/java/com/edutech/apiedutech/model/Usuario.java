@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Usuario {
@@ -30,6 +31,11 @@ public class Usuario {
     )
     @JsonBackReference
     private List<Curso> cursos;
+
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Incidencia> incidenciasReportadas;
+
 
     public Usuario() {
         this.rut = "";
