@@ -28,4 +28,14 @@ public class RespuestaService {
         return respuestaRepository.save(respuesta);
     }    
 
+    public String eliminarRespuesta(int id) {
+        Respuesta respuesta = respuestaRepository.findById(id).orElse(null);
+
+        if (respuesta != null) {
+            respuestaRepository.delete(respuesta);
+            return "Respuesta eliminada con éxito";
+        } else {
+            return "La respuesta no existe";
+        }
+    }
 }

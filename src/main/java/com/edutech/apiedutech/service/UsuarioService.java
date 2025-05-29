@@ -52,7 +52,7 @@ public class UsuarioService {
             usuarioRepository.save(usuario);
             return "Usuario inscrito exitosamente";
         }
-
+        
        
     }    
 }
