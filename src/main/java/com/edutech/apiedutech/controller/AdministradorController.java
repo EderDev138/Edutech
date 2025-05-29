@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.apiedutech.model.Administrador;
 import com.edutech.apiedutech.service.AdministradorService;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
