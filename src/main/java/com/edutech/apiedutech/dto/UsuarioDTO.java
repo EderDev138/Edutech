@@ -1,22 +1,15 @@
 package com.edutech.apiedutech.dto;
 
+import java.util.List;
+
 public class UsuarioDTO {
     private String rut;
     private String nombre;
     private String apellido;
+    private List<String> cursos;
 
-    public UsuarioDTO(){
-        this.rut = "" ;
-        this.apellido = "";
-        this.nombre = "";
-        
-    }
 
-    public UsuarioDTO(String apellido, String nombre, String rut) {
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.rut = rut;
-    }
+
 
     public String getRut() {
         return rut;
@@ -40,6 +33,14 @@ public class UsuarioDTO {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public List<String> getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(List<String> cursos) {
+        this.cursos = cursos;
     }
 
 

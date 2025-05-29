@@ -3,7 +3,6 @@ package com.edutech.apiedutech.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.model.Curso;
@@ -20,16 +19,18 @@ public class UsuarioService {
     @Autowired
     private CursoRepository cursoRepository;
 
-    public String registrarUsuario(Usuario usuario) {
-        if (usuarioRepository.findById(usuario.getRut()).isPresent()) {
-            return "El usuario con RUT " + usuario.getRut() + " ya existe.";
-        }
 
-        usuarioRepository.save(usuario);
-        return ResponseEntity.ok("Usuario registrado exitosamente.").toString();
+  public String registrarUsuario(Usuario usuario) {
+    if (usuarioRepository.findById(usuario.getRut()).isPresent()) {
+        return "El usuario con rut " + usuario.getRut() + " ya existe.";
     }
+
+    usuarioRepository.save(usuario);
+    return "Usuario registrado exitosamente.";
+    }
+
     
-    public List<Usuario> listar() {
+    public List<Usuario> listarUsuario() {
         return usuarioRepository.findAll();
     }
 
