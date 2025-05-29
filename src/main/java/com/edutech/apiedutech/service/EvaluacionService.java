@@ -52,8 +52,9 @@ public class EvaluacionService {
         
     }
 
-    public void eliminarEvaluacion(int id) {
+    public String eliminarEvaluacion(int id) {
         evaluacionRepository.deleteById(id);
+        return "Evaluación eliminada correctamente";
         
     }
 
