@@ -13,7 +13,7 @@ public class Respuesta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int preguntaId;
-    private int UsuarioId;
+    private int usuarioId;
     private Boolean respuestaUsuario;
     private float puntaje;
 
@@ -43,11 +43,11 @@ public class Respuesta {
     }
 
     public int getUsuarioId() {
-        return UsuarioId;
+        return usuarioId;
     }
 
     public void setUsuarioId(int usuarioId) {
-        UsuarioId = usuarioId;
+        this.usuarioId = usuarioId;
     }
 
     public Boolean getRespuestaUsuario() {
@@ -64,6 +64,14 @@ public class Respuesta {
 
     public void setPuntaje(float puntaje) {
         this.puntaje = puntaje;
+    }
+
+    public Pregunta getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(Pregunta pregunta) {
+        this.pregunta = pregunta;
     }
 
     
