@@ -50,8 +50,13 @@ public class EvaluacionService {
 
 
         }
+        
     }
 
+    public void eliminarEvaluacion(int id) {
+        evaluacionRepository.deleteById(id);
+        
+    }
     
 }
 

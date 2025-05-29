@@ -19,16 +19,18 @@ public class PreguntaService {
 
     }
 
-public String eliminarPregunta(int id) {
-    Pregunta pregunta = preguntaRepository.findById(id).orElse(null);
+    public String eliminarPregunta(int id) {
+        Pregunta pregunta = preguntaRepository.findById(id).orElse(null);
 
-    if (pregunta != null) {
-        preguntaRepository.delete(pregunta);
-        return "Pregunta eliminada con éxito";
-    } else {
-        return "La pregunta no existe";
+        if (pregunta != null) {
+            preguntaRepository.delete(pregunta);
+            return "Pregunta eliminada con éxito";
+        } else {
+            return "La pregunta no existe";
+        }
     }
-}
+
+        
 
 }
 
