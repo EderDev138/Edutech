@@ -31,14 +31,11 @@ public class Usuario {
     )
     @JsonBackReference
     private List<Curso> cursos;
-<<<<<<< HEAD
+
 
     @OneToMany(mappedBy = "usuario")
     private List<Incidencia> incidenciasReportadas;
-    
-   
-=======
->>>>>>> 7771debe75447f824e329951156475abad327c59
+
 
     public Usuario() {
         this.rut = "";
