@@ -18,5 +18,11 @@ public class RespuestaService {
         return preguntaRepository.findAll();
     }
     
-    
+    public Pregunta buscarPorId(int id) {
+        return preguntaRepository.findById(id).orElse(null);
+    }
+    public Pregunta guardar(Pregunta pregunta) {
+        return preguntaRepository.save(pregunta);
+    }
+
 }
