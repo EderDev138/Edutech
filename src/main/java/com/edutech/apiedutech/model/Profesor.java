@@ -12,6 +12,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 
+/** 
+@author "Eder Valdivia"
+*/
 @Entity
 public class Profesor {
     @Id

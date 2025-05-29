@@ -7,6 +7,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+/** 
+@author "Dayana Vega"
+*/
 @Entity
 public class Respuesta {
     @Id
