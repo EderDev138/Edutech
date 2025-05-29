@@ -24,10 +24,20 @@ public class ContenidoCursoService {
 
     public String almacenarContenido(ContenidoCurso contenido){
         if (contenidoCursoRepository.existsById(contenido.getId())){
-            return "El curso " + contenido.getTitulo() + " ya existe";
+            return "El contenido " + contenido.getTitulo() + " ya existe";
         }else {
             contenidoCursoRepository.save(contenido);
             return "El contenido "+contenido.getTitulo()+" guardado correctamente";
+
+        }}
+
+    public String eliminarContenido(Long id){
+        if (!contenidoCursoRepository.existsById(id)){
+            return "El contenido seleccionado no existe";
+        }else {
+            ContenidoCurso contenido = contenidoCursoRepository.findById(id).get();
+            contenidoCursoRepository.delete(contenido);
+            return "El contenido "+contenido.getTitulo()+" eliminado correctamente";
 
         }
 
