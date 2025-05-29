@@ -13,7 +13,7 @@ import com.edutech.apiedutech.model.Usuario;
 import com.edutech.apiedutech.repository.AdministradorRepository;
 import com.edutech.apiedutech.repository.ProfesorRepository;
 import com.edutech.apiedutech.repository.UsuarioRepository;
-
+// REALIZADO POR: ENCAR PORTILLO
 @Service
 public class AdministradorService {
     @Autowired

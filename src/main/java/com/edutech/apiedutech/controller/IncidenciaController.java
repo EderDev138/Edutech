@@ -16,6 +16,7 @@ import com.edutech.apiedutech.dto.AdministradorIncidenciaDTO;
 import com.edutech.apiedutech.model.Incidencia;
 import com.edutech.apiedutech.service.IncidenciaService;
 
+// REALIZADO POR: ENCAR PORTILLO
 
 @RestController
 @RequestMapping("/incidencias")

@@ -12,6 +12,8 @@ import jakarta.persistence.OneToMany;
 /** 
 @author "Dayana Vega"
 */
+// REALIZADO POR: DAYANA VEGA
+
 @Entity
 public class Evaluacion {
     @Id

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.apiedutech.model.Curso;
 import com.edutech.apiedutech.service.CursoService;
-
+// REALIZADO POR: EDER VALDIVIA
 @RestController
 @RequestMapping("/cursos")
 public class CursoController {

@@ -13,7 +13,7 @@ import jakarta.persistence.PrePersist;
 /** 
 @author "Encar Portillo";
 */
-
+// REALIZADO POR: ENCAR PORTILLO
 @Entity
 public class Incidencia {
 

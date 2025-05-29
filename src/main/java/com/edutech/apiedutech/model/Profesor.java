@@ -15,6 +15,8 @@ import jakarta.persistence.ManyToMany;
 /** 
 @author "Eder Valdivia"
 */
+// REALIZADO POR: EDER VALDIVIA
+
 @Entity
 public class Profesor {
     @Id

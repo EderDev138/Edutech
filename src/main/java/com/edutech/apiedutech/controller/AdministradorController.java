@@ -15,7 +15,7 @@ import com.edutech.apiedutech.dto.AdministradorDTO;
 import com.edutech.apiedutech.model.Administrador;
 import com.edutech.apiedutech.service.AdministradorService;
 
-
+// REALIZADO POR: ENCAR PORTILLO
 
 @RestController
 @RequestMapping("/administradores")

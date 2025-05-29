@@ -1,6 +1,7 @@
 package com.edutech.apiedutech.dto;
 
 import java.util.List;
+// REALIZADO POR: EDER VALDIVIA
 
 public class ProfesorDTO {
     private String rut;

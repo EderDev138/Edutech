@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 /** 
 @author "Encar Portillo"
 */
+// REALIZADO POR: ENCAR PORTILLO
 @Entity
 public class ContenidoCurso {
 

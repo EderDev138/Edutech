@@ -10,6 +10,7 @@ import com.edutech.apiedutech.model.Usuario;
 import com.edutech.apiedutech.repository.CursoRepository;
 import com.edutech.apiedutech.repository.UsuarioRepository;
 
+// REALIZADO POR: EDER VALDIVIA
 
 @Service
 public class UsuarioService {

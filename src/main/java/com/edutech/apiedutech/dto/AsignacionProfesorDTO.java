@@ -1,4 +1,5 @@
 package com.edutech.apiedutech.dto;
+// REALIZADO POR: EDER VALDIVIA
 
 public class AsignacionProfesorDTO {
 

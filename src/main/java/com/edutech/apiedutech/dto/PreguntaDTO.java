@@ -1,4 +1,5 @@
 package com.edutech.apiedutech.dto;
+// REALIZADO POR: DAYANA VEGA
 
 public class PreguntaDTO {
      private int id;

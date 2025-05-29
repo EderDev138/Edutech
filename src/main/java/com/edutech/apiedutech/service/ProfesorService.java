@@ -9,6 +9,8 @@ import com.edutech.apiedutech.model.Curso;
 import com.edutech.apiedutech.model.Profesor;
 import com.edutech.apiedutech.repository.CursoRepository;
 import com.edutech.apiedutech.repository.ProfesorRepository;
+// REALIZADO POR: EDER VALDIVIA
+
 @Service
 public class ProfesorService{
     @Autowired

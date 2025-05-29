@@ -18,6 +18,7 @@ import com.edutech.apiedutech.model.Profesor;
 import com.edutech.apiedutech.service.ProfesorService;
 
 
+// REALIZADO POR: EDER VALDIVIA
 
 @RestController
 @RequestMapping("/profesores")

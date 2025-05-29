@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 /** 
 @author "Dayana Vega"
 */
+// REALIZADO POR: DAYANA VEGA
+
 @Entity
 public class Pregunta {
     @Id

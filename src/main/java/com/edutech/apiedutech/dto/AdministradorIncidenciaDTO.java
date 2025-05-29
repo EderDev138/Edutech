@@ -1,5 +1,7 @@
 package com.edutech.apiedutech.dto;
 
+
+// REALIZADO POR: ENCAR PORTILLO
 public class AdministradorIncidenciaDTO {
 
     private String adminId;

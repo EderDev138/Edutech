@@ -8,7 +8,7 @@ import jakarta.persistence.OneToMany;
 /** 
 @author "Encar Portillo"
 */
-
+// REALIZADO POR: ENCAR PORTILLO
 
 @Entity
 public class Administrador {

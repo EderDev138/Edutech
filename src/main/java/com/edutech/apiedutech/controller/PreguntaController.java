@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.edutech.apiedutech.model.Pregunta;
 import com.edutech.apiedutech.service.PreguntaService;
 
+// REALIZADO POR: DAYANA VEGA
 
 @RestController
 @RequestMapping("/preguntas")

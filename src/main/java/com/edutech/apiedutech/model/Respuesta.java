@@ -10,6 +10,8 @@ import jakarta.persistence.ManyToOne;
 /** 
 @author "Dayana Vega"
 */
+// REALIZADO POR: DAYANA VEGA
+
 @Entity
 public class Respuesta {
     @Id

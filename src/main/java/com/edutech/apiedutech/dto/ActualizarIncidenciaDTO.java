@@ -4,6 +4,10 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.PrePersist;
 
+
+// REALIZADO POR: ENCAR PORTILLO
+
+
 public class ActualizarIncidenciaDTO {
 
     private String comentario;

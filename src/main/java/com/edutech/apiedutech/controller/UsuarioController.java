@@ -14,6 +14,7 @@ import com.edutech.apiedutech.dto.AsignacionUsuarioDTO;
 import com.edutech.apiedutech.dto.UsuarioDTO;
 import com.edutech.apiedutech.model.Usuario;
 import com.edutech.apiedutech.service.UsuarioService;
+// REALIZADO POR: EDER VALDIVIA
 
 @RestController
 @RequestMapping("/usuarios")
