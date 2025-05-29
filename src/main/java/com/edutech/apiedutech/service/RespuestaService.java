@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.model.Pregunta;
+import com.edutech.apiedutech.model.Respuesta;
 import com.edutech.apiedutech.repository.PreguntaRepository;
+import com.edutech.apiedutech.repository.RespuestaRepository;
+
 
 @Service
 public class RespuestaService {
@@ -14,20 +17,15 @@ public class RespuestaService {
     @Autowired
     private PreguntaRepository preguntaRepository;
 
+    @Autowired
+    private RespuestaRepository respuestaRepository;
+
     public List <Pregunta> listar(){
         return preguntaRepository.findAll();
     }
-    
-    public Pregunta buscarPorId(int id) {
-        return preguntaRepository.findById(id).orElse(null);
-    }
- public Pregunta guardarPregunta(Pregunta pregunta) {
-    
-    if (pregunta != null && pregunta.isCorrecta()) {
-        return preguntaRepository.save(pregunta);
-    } else {
-       
-        return null;
-    }
+
+    public Respuesta guardarRespuesta(Respuesta respuesta) {
+        return respuestaRepository.save(respuesta);
+    }    
 
 }
