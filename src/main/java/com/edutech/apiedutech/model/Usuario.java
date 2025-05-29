@@ -94,6 +94,14 @@ public class Usuario {
     public void setCursos(List<Curso> cursos) {
         this.cursos = cursos;
     }
+
+    public List<Incidencia> getIncidenciasReportadas() {
+        return incidenciasReportadas;
+    }
+
+    public void setIncidenciasReportadas(List<Incidencia> incidenciasReportadas) {
+        this.incidenciasReportadas = incidenciasReportadas;
+    }
     
     
     }

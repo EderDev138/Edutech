@@ -17,23 +17,21 @@ public class Incidencia {
     private Long id;
 
     private LocalDateTime fecha;
-    private String usuario;
     private String descripcion;
-    private String tecnicoAsignado;
     private String estado;
     private LocalDateTime fechaSolucion;
     private String comentario;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario", referencedColumnName = "rut")
-    private Usuario user;
+      @ManyToOne
+    @JoinColumn(name = "usuario", referencedColumnName = "rut", nullable = false)
+    private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "tecnicoAsignado", referencedColumnName = "email")
+    @JoinColumn(name = "tecnico_asignado", referencedColumnName = "email", nullable = true)
     private Administrador tecnico;
 
     @ManyToOne
-    @JoinColumn(name = "cursoRelacionado", referencedColumnName = "sigla")
+    @JoinColumn(name = "curso_relacionado", referencedColumnName = "sigla", nullable = false)
     private Curso curso;
 
     public Incidencia(){
@@ -55,13 +53,7 @@ public class Incidencia {
         this.fecha = fecha;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+   
 
     public String getDescripcion() {
         return descripcion;
@@ -69,14 +61,6 @@ public class Incidencia {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public String getTecnicoAsignado() {
-        return tecnicoAsignado;
-    }
-
-    public void setTecnicoAsignado(String tecnicoAsignado) {
-        this.tecnicoAsignado = tecnicoAsignado;
     }
 
     public String getEstado() {
@@ -103,14 +87,6 @@ public class Incidencia {
         this.comentario = comentario;
     }
 
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-    }
-
     public Administrador getTecnico() {
         return tecnico;
     }
@@ -125,6 +101,14 @@ public class Incidencia {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     
