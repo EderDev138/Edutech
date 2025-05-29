@@ -26,10 +26,12 @@ public class EvaluacionService {
         return ResponseEntity.ok("Evaluación registada existosamente").toString();
     }
 
-
+    public Evaluacion crearEvaluacion(Evaluacion evaluacion) {
+        return evaluacionRepository.save(evaluacion);
         
     }
 
-
+    
+}
 
 
