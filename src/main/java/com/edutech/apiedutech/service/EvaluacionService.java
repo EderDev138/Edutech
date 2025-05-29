@@ -43,7 +43,7 @@ public class EvaluacionService {
             Evaluacion evaluacion = evaluacionRepository.findById(evaluacionId).get();
             Pregunta pregunta = preguntaRepository.findById(preguntaId).get();
             
-            evaluacion.getPregunta().add(pregunta);
+            evaluacion.getPreguntas().add(pregunta);
             evaluacionRepository.save(evaluacion);
 
             return "Pregunta agregada correctamente";

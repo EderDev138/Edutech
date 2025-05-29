@@ -2,14 +2,7 @@ package com.edutech.apiedutech.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.*;
 
 @Entity
 public class Pregunta {
@@ -23,16 +16,15 @@ public class Pregunta {
     @ManyToOne
     @JoinColumn(name = "evaluacion_id", nullable = false)
     @JsonBackReference
-    private Evaluacion evaluacion; 
+    private Evaluacion evaluacion;
 
-    public Pregunta(){
-        this.id = 0;
+    public Pregunta() {
         this.enunciado = "";
         this.opciones = "";
         this.respuestaCorrecta = "";
-        
-
     }
+
+    // Getters y Setters
 
     public int getId() {
         return id;
@@ -64,7 +56,13 @@ public class Pregunta {
 
     public void setRespuestaCorrecta(String respuestaCorrecta) {
         this.respuestaCorrecta = respuestaCorrecta;
-    
     }
-    
+
+    public Evaluacion getEvaluacion() {
+        return evaluacion;
+    }
+
+    public void setEvaluacion(Evaluacion evaluacion) {
+        this.evaluacion = evaluacion;
+    }
 }

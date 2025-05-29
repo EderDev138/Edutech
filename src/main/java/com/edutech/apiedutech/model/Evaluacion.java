@@ -3,7 +3,6 @@ package com.edutech.apiedutech.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,17 +14,16 @@ public class Evaluacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String titulo;
     private String descripcion;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
 
+    @OneToMany(mappedBy = "evaluacion")
+    private List<Pregunta> preguntas;
 
-    @OneToMany(mappedBy = "evaluacion", cascade = CascadeType.ALL)
-    private List<Pregunta> pregunta;
-    
-    
-    public Evaluacion(){
+    public Evaluacion() {
         this.id = 0;
         this.titulo = "";
         this.descripcion = "";
@@ -73,17 +71,12 @@ public class Evaluacion {
         this.fechaFin = fechaFin;
     }
 
-    public List<Pregunta> getPregunta() {
-        return pregunta;
+    public List<Pregunta> getPreguntas() {
+        return preguntas;
     }
 
-    public void setPregunta(List<Pregunta> pregunta) {
-        this.pregunta = pregunta;
+    public void setPreguntas(List<Pregunta> preguntas) {
+        this.preguntas = preguntas;
     }
 
-    
-
-
-
-
-}
+} 
