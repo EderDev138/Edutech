@@ -20,9 +20,9 @@ public class PreguntaController {
     @Autowired
     private PreguntaService preguntaService;
 
-    @PostMapping()
+    @PostMapping
     public String crearPregunta(@RequestBody Pregunta pregunta) {
-        return preguntaService.guardarPregunta(pregunta).toString();
+        return preguntaService.guardarPregunta(pregunta);
 
 
     }

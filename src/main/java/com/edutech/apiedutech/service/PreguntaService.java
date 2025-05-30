@@ -30,8 +30,9 @@ public class PreguntaService {
             return "La pregunta no existe";
         }
     }
-    public Pregunta guardarPregunta(Pregunta pregunta) {
-        return preguntaRepository.save(pregunta);
+    public String guardarPregunta(Pregunta pregunta) {
+        preguntaRepository.save(pregunta);
+        return "Pregunta guardada";
     }
     
         

@@ -19,7 +19,7 @@ public class Pregunta {
     private String respuestaCorrecta;
 
     @ManyToOne
-    @JoinColumn(name = "evaluacion_id", nullable = false)
+    @JoinColumn(name = "evaluacion_id", nullable = true)
     @JsonBackReference
     private Evaluacion evaluacion;
 
