@@ -8,4 +8,6 @@ import com.edutech.apiedutech.model.Pregunta;
 
 public interface PreguntaRepository extends JpaRepository <Pregunta, Integer> {
 
+    Pregunta findBySiglaPregunta(String siglaPregunta);
+
 }
