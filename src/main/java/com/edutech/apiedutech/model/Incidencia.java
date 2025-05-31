@@ -44,7 +44,6 @@ public class Incidencia {
     @PrePersist
     protected void fechaAuto(){
         this.fecha = LocalDateTime.now();
-        this.fechaSolucion = LocalDateTime.now();
     }
 
     public Long getId() {

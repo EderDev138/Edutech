@@ -7,9 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-/** 
-@author "Dayana Vega"
-*/
 // REALIZADO POR: DAYANA VEGA
 
 @Entity
@@ -17,9 +14,13 @@ public class Respuesta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int preguntaId;
-    private int usuarioId;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false) 
+    private Usuario usuario; 
+
     private Boolean respuestaUsuario;
+                                     
     private float puntaje;
 
 
@@ -28,7 +29,7 @@ public class Respuesta {
     private Pregunta pregunta;
 
     public Respuesta(){
-        
+
     }
 
     public int getId() {
@@ -39,20 +40,12 @@ public class Respuesta {
         this.id = id;
     }
 
-    public int getPreguntaId() {
-        return preguntaId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setPreguntaId(int preguntaId) {
-        this.preguntaId = preguntaId;
-    }
-
-    public int getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Boolean getRespuestaUsuario() {
@@ -78,6 +71,4 @@ public class Respuesta {
     public void setPregunta(Pregunta pregunta) {
         this.pregunta = pregunta;
     }
-
-    
-    }
+}
