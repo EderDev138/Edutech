@@ -24,7 +24,7 @@ public class AdministradorController {
     @Autowired
     private AdministradorService administradorService;
 
-    @PostMapping
+    @PostMapping()
     public String crearAdmin(@RequestBody Administrador admin){
         return administradorService.agregarAdmin(admin);
     }
@@ -42,7 +42,7 @@ public class AdministradorController {
         return administradorService.eliminarProfesor(id);
     }
 
-    @GetMapping
+    @GetMapping()
     public List<AdministradorDTO> listarAdmin(){
         return administradorService.listar();
     }

@@ -64,7 +64,10 @@ public class AdministradorService {
             profesorRepository.deleteById(id);
             return "Profesor "+profesor.getNombre()+" eliminado";
         }
-        }
+    }
+
+
+    
 
     public List<AdministradorDTO> listar(){
         return administradorRepository.findAll().stream().map(admin ->{

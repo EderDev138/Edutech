@@ -57,11 +57,14 @@ public class UsuarioService {
         
        
     }
+
     public String eliminarUsuario(String rut) {
     if (!usuarioRepository.existsById(rut)) {
         return "El usuario con RUT " + rut + " no existe.";
     }
     usuarioRepository.deleteById(rut);
     return "Usuario eliminado exitosamente.";
-}    
+} 
+
+
 }
