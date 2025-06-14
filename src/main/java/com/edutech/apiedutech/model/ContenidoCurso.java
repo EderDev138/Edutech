@@ -27,7 +27,6 @@ public class ContenidoCurso {
     private Curso curso;
 
     public  ContenidoCurso(){
-        this.id = (long) 0;
         this.titulo = "";
         this.descripcion = "";
         this.urlContenidoCurso = "";
