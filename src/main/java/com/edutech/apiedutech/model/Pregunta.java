@@ -1,6 +1,9 @@
 package com.edutech.apiedutech.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
@@ -14,18 +17,23 @@ public class Pregunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @ElementCollection
+    private List<String> opciones = new ArrayList<>();
+
+    private String siglaPregunta;
     private String enunciado;
-    private String opciones;
     private String respuestaCorrecta;
 
     @ManyToOne
-    @JoinColumn(name = "evaluacion_id", nullable = false)
+    @JoinColumn(name = "evaluacion_id", nullable = true)
     @JsonBackReference
     private Evaluacion evaluacion;
 
     public Pregunta() {
+        this.siglaPregunta = "";
         this.enunciado = "";
-        this.opciones = "";
+        this.opciones = new ArrayList<>();
         this.respuestaCorrecta = "";
     }
 
@@ -47,13 +55,6 @@ public class Pregunta {
         this.enunciado = enunciado;
     }
 
-    public String getOpciones() {
-        return opciones;
-    }
-
-    public void setOpciones(String opciones) {
-        this.opciones = opciones;
-    }
 
     public String getRespuestaCorrecta() {
         return respuestaCorrecta;
@@ -69,6 +70,22 @@ public class Pregunta {
 
     public void setEvaluacion(Evaluacion evaluacion) {
         this.evaluacion = evaluacion;
+    }
+
+    public String getSiglaPregunta() {
+        return siglaPregunta;
+    }
+
+    public void setSiglaPregunta(String siglaPregunta) {
+        this.siglaPregunta = siglaPregunta;
+    }
+
+    public List<String> getOpciones() {
+        return opciones;
+    }
+
+    public void setOpciones(List<String> opciones) {
+        this.opciones = opciones;
     }
 
     

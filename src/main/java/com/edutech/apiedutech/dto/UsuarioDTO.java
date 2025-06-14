@@ -1,13 +1,10 @@
 package com.edutech.apiedutech.dto;
 
-import java.util.List;
-// REALIZADO POR: EDER VALDIVIA
-
 public class UsuarioDTO {
     private String rut;
     private String nombre;
     private String apellido;
-    private List<String> cursos;
+   
 
 
 
@@ -36,13 +33,6 @@ public class UsuarioDTO {
         this.apellido = apellido;
     }
 
-    public List<String> getCursos() {
-        return cursos;
-    }
-
-    public void setCursos(List<String> cursos) {
-        this.cursos = cursos;
-    }
 
 
     

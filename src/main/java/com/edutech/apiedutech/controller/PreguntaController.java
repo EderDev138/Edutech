@@ -1,5 +1,7 @@
 package com.edutech.apiedutech.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.edutech.apiedutech.dto.PreguntaDTO;
 import com.edutech.apiedutech.model.Pregunta;
 import com.edutech.apiedutech.service.PreguntaService;
 
@@ -20,20 +23,20 @@ public class PreguntaController {
     @Autowired
     private PreguntaService preguntaService;
 
-    @PostMapping()
+    @PostMapping
     public String crearPregunta(@RequestBody Pregunta pregunta) {
-        return preguntaService.guardarPregunta(pregunta).toString();
+        return preguntaService.guardarPregunta(pregunta);
 
 
     }
     
-    @DeleteMapping("/eliminar/{id}")
-    public String eliminarPregunta(@PathVariable int id) {
-        return preguntaService.eliminarPregunta(id);
+    @DeleteMapping("/eliminar/{sigla}")
+    public String eliminarPregunta(@PathVariable String sigla) {
+        return preguntaService.eliminarPregunta(sigla);
     }
 
     @GetMapping("/listar")
-    public String listarPreguntas() {
-        return preguntaService.listar().toString();
+    public List<PreguntaDTO> listarPreguntas() {
+        return preguntaService.listar();
     }
 }

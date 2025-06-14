@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.edutech.apiedutech.dto.CursoDTO;
+import com.edutech.apiedutech.dto.UsuarioDTO;
 import com.edutech.apiedutech.model.ContenidoCurso;
 import com.edutech.apiedutech.model.Curso;
 import com.edutech.apiedutech.repository.ContenidoCursoRepository;
@@ -55,6 +57,24 @@ public class CursoService {
 
     }
 
+  public List<CursoDTO> listarCursos() {
+    return cursoRepository.findAll().stream().map(curso -> {
+        CursoDTO dto = new CursoDTO();
+        dto.setSigla(curso.getSigla());
+        dto.setNombre(curso.getNombre());
+        // Mapea los usuarios de la entidad a UsuarioDTO
+        List<UsuarioDTO> usuariosDTO = curso.getUsuarios().stream().map(usuario -> {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setRut(usuario.getRut());
+            usuarioDTO.setNombre(usuario.getNombre());
+            usuarioDTO.setApellido(usuario.getApellido());
+            // agrega más campos si es necesario
+            return usuarioDTO;
+        }).toList();
+        dto.setUsuarios(usuariosDTO);
+        return dto;
+    }).toList();
+}
 
     public String eliminar(String sigla) {
         if (cursoRepository.existsById(sigla)) {
