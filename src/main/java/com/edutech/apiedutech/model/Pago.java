@@ -21,7 +21,6 @@ public class Pago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int monto;
-    private int montoDescuento;
     private LocalDateTime fechaPago;
 
     @ManyToOne
@@ -35,8 +34,8 @@ public class Pago {
     public Pago(){
         this.id= 0;
         this.monto= 0;
-        this.montoDescuento= 0;
         this.fechaPago= LocalDateTime.now();
+    
 
     }
 
@@ -56,13 +55,6 @@ public class Pago {
         this.monto = monto;
     }
 
-    public int getMontoDescuento() {
-        return montoDescuento;
-    }
-
-    public void setMontoDescuento(int montoDescuento) {
-        this.montoDescuento = montoDescuento;
-    }
 
     public LocalDateTime getFechaPago() {
         return fechaPago;
@@ -87,6 +79,7 @@ public class Pago {
     public void setCupon(Cupon cupon) {
         this.cupon = cupon;
     }
-    
+
+   
     
 }
