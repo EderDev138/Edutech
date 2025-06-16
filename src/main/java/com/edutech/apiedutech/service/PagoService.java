@@ -23,7 +23,7 @@ public class PagoService {
     private TarjetaRepository tarjetaRepository;
 
 
-    public String realizarPago(Pago pago){
+    public String validarPago(Pago pago){
         if(pagoRepository.findById(pago.getId()) != null){
             return "Pago no encotrado";
         }else{pagoRepository.save(pago);
@@ -33,4 +33,5 @@ public class PagoService {
 
         
     }
+
 }
