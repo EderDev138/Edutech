@@ -22,6 +22,8 @@ public class Pago {
     private int id;
     private int monto;
     private LocalDateTime fechaPago;
+    private String estadoPago;
+    private String metodoPago;
 
     @ManyToOne
     @JoinColumn(name = "tarjeta_id", nullable = false)
@@ -35,6 +37,8 @@ public class Pago {
         this.id= 0;
         this.monto= 0;
         this.fechaPago= LocalDateTime.now();
+        this.estadoPago = "";
+        this.metodoPago = "";
     
 
     }
@@ -78,6 +82,22 @@ public class Pago {
 
     public void setCupon(Cupon cupon) {
         this.cupon = cupon;
+    }
+
+    public String getEstadoPago() {
+        return estadoPago;
+    }
+
+    public void setEstadoPago(String estadoPago) {
+        this.estadoPago = estadoPago;
+    }
+
+    public String getMetodoPago() {
+        return metodoPago;
+    }
+
+    public void setMetodoPago(String metodoPago) {
+        this.metodoPago = metodoPago;
     }
 
    
