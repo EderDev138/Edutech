@@ -44,4 +44,8 @@ public class PagoService {
             return "Pago no encontrado";
         }
     }
+    public int calcularDescuento(int monto, Cupon cupon){
+        int descuento = cupon.getCantidadDescuento();
+        return monto - (monto * descuento);
+    }
 }
