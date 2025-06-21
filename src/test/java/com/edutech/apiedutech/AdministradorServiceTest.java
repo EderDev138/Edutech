@@ -15,6 +15,9 @@ import com.edutech.apiedutech.model.Administrador;
 import com.edutech.apiedutech.repository.AdministradorRepository;
 import com.edutech.apiedutech.service.AdministradorService;
 
+// REALIZADO POR: ENCAR PORTILLO
+
+
 @ExtendWith(MockitoExtension.class)
 public class AdministradorServiceTest {
 
