@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.edutech.apiedutech.model.Cupon;
 import com.edutech.apiedutech.model.Pago;
 import com.edutech.apiedutech.model.Tarjeta;
-import com.edutech.apiedutech.repository.CuponRepository;
 import com.edutech.apiedutech.repository.PagoRepository;
 import com.edutech.apiedutech.repository.TarjetaRepository;
 
@@ -20,8 +19,6 @@ public class PagoService {
     @Autowired
     private PagoRepository pagoRepository;
 
-    @Autowired
-    private CuponRepository cuponRepository;
 
     @Autowired
     private TarjetaRepository tarjetaRepository;
