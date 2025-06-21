@@ -34,4 +34,16 @@ public class PreguntaServiceTest {
     assertEquals("Pregunta almacenada correctamente", resultado);
     }
 
+    @Test
+    void elimiminarPreg(){
+    Pregunta pregunta = new Pregunta();
+
+    pregunta.setSiglaPregunta("P001_FS");
+
+    when(preguntaRepository.findBySiglaPregunta(pregunta.getSiglaPregunta())).thenReturn(null);
+
+    String resultado = preguntaService.eliminarPregunta(pregunta.getSiglaPregunta());
+    assertEquals("La pregunta no existe", resultado);
+    }
+
 }

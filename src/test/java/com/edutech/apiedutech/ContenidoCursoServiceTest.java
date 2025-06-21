@@ -58,7 +58,7 @@ public class ContenidoCursoServiceTest {
             con01.setTitulo("Unidad_01");
             con01.setDescripcion("Material Unidad 01");
        
-            ContenidoCurso con02 = new ContenidoCurso();
+        ContenidoCurso con02 = new ContenidoCurso();
             con02.setId(2L);
             con02.setTitulo("Unidad_02");
             con02.setDescripcion("Material Unidad 02");
