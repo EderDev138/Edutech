@@ -5,7 +5,9 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 /** 
 @author "Eder Valdivia"
@@ -31,6 +33,10 @@ public class Curso {
 
     @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
     private List<Incidencia> incidenciasRelacionadas;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_cupon")
+    private Cupon cupon;
 
     
    
