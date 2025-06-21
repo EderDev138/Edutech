@@ -26,7 +26,7 @@ public class Incidencia {
     private LocalDateTime fechaSolucion;
     private String comentario;
 
-      @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "usuario", referencedColumnName = "rut", nullable = true)
     private Usuario usuario;
 

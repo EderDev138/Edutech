@@ -36,7 +36,7 @@ public class Cupon {
 
     private Boolean usado;
 
-    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cupon", cascade = CascadeType.ALL)
     private List<Curso> listaCursos;
 
     @OneToOne
