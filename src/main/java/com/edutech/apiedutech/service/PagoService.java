@@ -1,10 +1,13 @@
 package com.edutech.apiedutech.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.model.Cupon;
 import com.edutech.apiedutech.model.Pago;
+import com.edutech.apiedutech.model.Tarjeta;
 import com.edutech.apiedutech.repository.CuponRepository;
 import com.edutech.apiedutech.repository.PagoRepository;
 import com.edutech.apiedutech.repository.TarjetaRepository;
@@ -24,9 +27,12 @@ public class PagoService {
     private TarjetaRepository tarjetaRepository;
 
     public String realizarPago(Pago pago){
-        Tarjeta tarjeta = tarjetaRepository.findById(pago.getTarjeta().getId())
+        Optional<Tarjeta> tarjeta = tarjetaRepository.findById(pago.getTarjeta().getId());
         if (tarjeta == null){
             return "La tarjeta no existe";
+        }else{
+            pagoRepository.save(pago);
+            return "Pago guardado con éxito";
         }
     }
 
