@@ -3,6 +3,8 @@ package com.edutech.apiedutech;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -49,6 +51,20 @@ public class AdministradorServiceTest {
     
         assertEquals("Email para administrador ya existe, por favor use otro", resultado);
         
+    }
+
+    @Test
+    void eliminarAdministrador(){
+        Administrador admin = new Administrador();
+        admin.setEmail("correoeliminar@correo.cl");
+        admin.setNombre("Admin");
+        String idEliminar = admin.getEmail();
+
+        when(administradorRepository.existsById(idEliminar)).thenReturn(true);
+        when(administradorRepository.findById(idEliminar)).thenReturn(Optional.of(admin));
+
+        String resultado = administradorService.eliminarAdministrador(idEliminar);
+        assertEquals("Usuario "+admin.getNombre()+" eliminado", resultado);
     }
 
 }
