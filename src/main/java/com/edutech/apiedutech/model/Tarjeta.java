@@ -1,31 +1,28 @@
 package com.edutech.apiedutech.model;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Tarjeta {
     @Id
-    public String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int id;
     public String numeroTarjeta;
     public String fechaExpiracion;
     public String cvv;
     public String titular;
 
     public Tarjeta() {
-        this.id = "";
+        this.id = 0;
         this.numeroTarjeta = "";
         this.fechaExpiracion = "";
         this.cvv = "";
         this.titular = "";
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getNumeroTarjeta() {
         return numeroTarjeta;
@@ -57,6 +54,18 @@ public class Tarjeta {
 
     public void setTitular(String titular) {
         this.titular = titular;
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     

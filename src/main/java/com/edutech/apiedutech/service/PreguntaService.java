@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.edutech.apiedutech.dto.PreguntaDTO;
@@ -27,6 +29,22 @@ public class PreguntaService {
     }).collect(Collectors.toList());
 
     }
+
+    public ResponseEntity<?> mostrarPreguntaPorSigla(String sigla) {
+    Pregunta pregunta = preguntaRepository.findBySiglaPregunta(sigla);
+
+    if (pregunta != null) {
+        PreguntaDTO dto = new PreguntaDTO();
+        dto.setSigla(pregunta.getSiglaPregunta());
+        dto.setEnunciado(pregunta.getEnunciado());
+        dto.setOpciones(pregunta.getOpciones());
+        // No se incluye la respuestaCorrecta
+        return ResponseEntity.ok(dto);
+    } else {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pregunta no encontrada");
+    }
+    }
+
 
     public String eliminarPregunta(String sigla) {
         Pregunta pregunta = preguntaRepository.findBySiglaPregunta(sigla);

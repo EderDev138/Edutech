@@ -3,6 +3,7 @@ package com.edutech.apiedutech.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,4 +40,10 @@ public class PreguntaController {
     public List<PreguntaDTO> listarPreguntas() {
         return preguntaService.listar();
     }
+
+    @GetMapping("/preguntas/{sigla}")
+    public ResponseEntity<?> obtenerPreguntaPorSigla(@PathVariable String sigla) {
+    return preguntaService.mostrarPreguntaPorSigla(sigla);
+}
+
 }

@@ -25,7 +25,7 @@ public class PagoService {
 
     public String realizarPago(Pago pago){
         Optional<Tarjeta> tarjeta = tarjetaRepository.findById(pago.getTarjeta().getId());
-        if (tarjeta == null){
+        if (tarjeta.isEmpty()){
             return "La tarjeta no existe";
         }else{
             pagoRepository.save(pago);
@@ -49,6 +49,6 @@ public class PagoService {
     }
     public int calcularDescuento(int monto, Cupon cupon){
         int descuento = cupon.getCantidadDescuento();
-        return monto - (monto * descuento);
+        return monto - ((monto * descuento)/100);
     }
 }
