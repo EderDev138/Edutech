@@ -63,33 +63,33 @@ public class CuponServiceTest {
             assertEquals("El cupon " + cupon.getCodigo() + " que intenta ingresar ya existe", resultado);
         }
         
-        @Test
-        void listarCupones(){
-            Cupon cup01 = new Cupon();
-                cup01.setCodigo("DESCJUN2025");
-                cup01.setCantidadDescuento(10);
-                cup01.setDescripcion("Decuento Junio");
-                cup01.setFechaExpiracion(LocalDate.of(2025,07,01));
-                cup01.setFechaUso(null);
-                cup01.setUsado(false);
+    @Test
+    void listarCupones(){
+        Cupon cup01 = new Cupon();
+            cup01.setCodigo("DESCJUN2025");
+            cup01.setCantidadDescuento(10);
+            cup01.setDescripcion("Decuento Junio");
+            cup01.setFechaExpiracion(LocalDate.of(2025,07,01));
+            cup01.setFechaUso(null);
+            cup01.setUsado(false);
 
-            Cupon cup02 = new Cupon();
-                cup02.setCodigo("DESCJUL2025");
-                cup02.setCantidadDescuento(10);
-                cup02.setDescripcion("Decuento Julio");
-                cup02.setFechaExpiracion(LocalDate.of(2025,8,01));
-                cup02.setFechaUso(null);
-                cup02.setUsado(false);
-            
-            List<Cupon> cupones = new ArrayList<>();
-            cupones.add(cup01);
-            cupones.add(cup02);
-            
-            when(cuponRepository.findAll()).thenReturn(cupones);
-            
-            List<Cupon> resultado = cuponService.listarCupones();
-            assertEquals(2, resultado.size());
-            assertEquals("DESCJUL2025", resultado.get(1).getCodigo());
+        Cupon cup02 = new Cupon();
+            cup02.setCodigo("DESCJUL2025");
+            cup02.setCantidadDescuento(10);
+            cup02.setDescripcion("Decuento Julio");
+            cup02.setFechaExpiracion(LocalDate.of(2025,8,01));
+            cup02.setFechaUso(null);
+            cup02.setUsado(false);
+        
+        List<Cupon> cupones = new ArrayList<>();
+        cupones.add(cup01);
+        cupones.add(cup02);
+        
+        when(cuponRepository.findAll()).thenReturn(cupones);
+        
+        List<Cupon> resultado = cuponService.listarCupones();
+        assertEquals(2, resultado.size());
+        assertEquals("DESCJUL2025", resultado.get(1).getCodigo());
     }
 
     @Test

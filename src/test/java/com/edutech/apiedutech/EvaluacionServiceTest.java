@@ -50,11 +50,11 @@ public class EvaluacionServiceTest {
         evaluacion.setSigla("EV001_FS");
         pregunta.setSiglaPregunta("P001_FS");
 
-        when(evaluacionRepository.findBySigla(evaluacion.getSigla())).thenReturn(null);
-        when(preguntaRepository.findBySiglaPregunta(pregunta.getSiglaPregunta())).thenReturn(null);
+        when(evaluacionRepository.findBySigla(evaluacion.getSigla())).thenReturn(evaluacion);
+        when(preguntaRepository.findBySiglaPregunta(pregunta.getSiglaPregunta())).thenReturn(pregunta);
 
         String resultado = evaluacionService.asignarPregunta(evaluacion.getSigla(), pregunta.getSiglaPregunta());
-        assertEquals("La evaluación no existe", resultado);
+        assertEquals("Pregunta: "+pregunta.getSiglaPregunta()+" agregada correctamente a la evaluación " + evaluacion.getSigla(), resultado);
 
     }
 

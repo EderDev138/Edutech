@@ -1,5 +1,6 @@
 package com.edutech.apiedutech.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,23 +56,31 @@ public class EvaluacionService {
 
     }
 
-    public String asignarPregunta(String evaluacionSigla, String preguntaSigla ){
+    public String asignarPregunta(String evaluacionSigla, String preguntaSigla) {
         Evaluacion evaluacion = evaluacionRepository.findBySigla(evaluacionSigla);
+        if (evaluacion == null) {
+            return "La evaluación con sigla " + evaluacionSigla + " no existe";
+        }
+
         Pregunta pregunta = preguntaRepository.findBySiglaPregunta(preguntaSigla);
-        if (evaluacion == null){
-            return "La evaluación no existe";
-        }else if (pregunta == null){
-            return "La pregunta no existe";
-
-        }else{
-            pregunta.setEvaluacion(evaluacion);
-            evaluacion.getPreguntas().add(pregunta);
-            preguntaRepository.save(pregunta);
-            evaluacionRepository.save(evaluacion);
-            return "Pregunta agregada correctamente";
+        if (pregunta == null) {
+            return "La pregunta con sigla " + preguntaSigla + " no existe";
         }
 
+        if (evaluacion.getPreguntas() == null) {
+            evaluacion.setPreguntas(new ArrayList<>());
         }
+
+        if (evaluacion.getPreguntas().contains(pregunta)) {
+            return "La pregunta ya está asignada a esta evaluación";
+        }
+
+        evaluacion.getPreguntas().add(pregunta);
+        evaluacionRepository.save(evaluacion);
+
+        return "Pregunta: "+preguntaSigla+" agregada correctamente a la evaluación " + evaluacionSigla;
+    }
+
 
 
     public String eliminarEvaluacion(int id) {

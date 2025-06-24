@@ -38,7 +38,6 @@ public class PreguntaService {
         dto.setSigla(pregunta.getSiglaPregunta());
         dto.setEnunciado(pregunta.getEnunciado());
         dto.setOpciones(pregunta.getOpciones());
-        // No se incluye la respuestaCorrecta
         return ResponseEntity.ok(dto);
     } else {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pregunta no encontrada");
