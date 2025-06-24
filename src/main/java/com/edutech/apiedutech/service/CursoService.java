@@ -62,7 +62,7 @@ public class CursoService {
         CursoDTO dto = new CursoDTO();
         dto.setSigla(curso.getSigla());
         dto.setNombre(curso.getNombre());
-        // Mapea los usuarios de la entidad a UsuarioDTO
+
         List<UsuarioDTO> usuariosDTO = curso.getUsuarios().stream().map(usuario -> {
             UsuarioDTO usuarioDTO = new UsuarioDTO();
             usuarioDTO.setRut(usuario.getRut());

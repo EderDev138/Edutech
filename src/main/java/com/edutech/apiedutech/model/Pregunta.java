@@ -37,7 +37,6 @@ public class Pregunta {
         this.respuestaCorrecta = "";
     }
 
-    // Getters y Setters
 
     public int getId() {
         return id;
