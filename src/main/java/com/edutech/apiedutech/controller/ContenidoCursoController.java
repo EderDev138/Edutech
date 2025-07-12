@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edutech.apiedutech.model.ContenidoCurso;
@@ -33,8 +35,8 @@ public class ContenidoCursoController {
         return contenidoCursoService.almacenarContenido(contenido);
     }
 
-    @DeleteMapping("/eliminar")
-    public String eliminarContenido(Long id){
+    @DeleteMapping("/eliminar/{id}")
+    public String eliminarContenido(@PathVariable Long id){
         return contenidoCursoService.eliminarContenido(id);
     }
 

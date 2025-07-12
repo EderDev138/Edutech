@@ -22,14 +22,19 @@ public class ContenidoCursoService {
         return contenidoCursoRepository.findAll();        
     }
 
-    public String almacenarContenido(ContenidoCurso contenido){
-        if (contenidoCursoRepository.existsById(contenido.getId())){
-            return "El contenido " + contenido.getTitulo() + " ya existe";
-        }else {
-            contenidoCursoRepository.save(contenido);
-            return "El contenido "+contenido.getTitulo()+" guardado correctamente";
+public String almacenarContenido(ContenidoCurso contenido){
+    if (contenido == null || contenido.getCurso() == null || contenido.getCurso().getSigla() == null) {
+        return "Debe asociar el contenido a un curso con sigla válida.";
+    }
 
-        }}
+    if (!cursoRepository.existsById(contenido.getCurso().getSigla())) {
+        return "El curso con sigla '" + contenido.getCurso().getSigla() + "' no existe.";
+    }
+
+    contenidoCursoRepository.save(contenido);
+    return "El contenido '" + contenido.getTitulo() + "' fue guardado correctamente.";
+}
+
 
     public String eliminarContenido(Long id){
         if (!contenidoCursoRepository.existsById(id)){

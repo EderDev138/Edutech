@@ -9,6 +9,7 @@ import com.edutech.apiedutech.model.Cupon;
 import com.edutech.apiedutech.model.Pago;
 import com.edutech.apiedutech.model.Tarjeta;
 import com.edutech.apiedutech.repository.PagoRepository;
+import com.edutech.apiedutech.repository.PreguntaRepository;
 import com.edutech.apiedutech.repository.TarjetaRepository;
 
 // REALIZADO POR: DAYANA VEGA
@@ -16,12 +17,18 @@ import com.edutech.apiedutech.repository.TarjetaRepository;
 @Service
 public class PagoService {
 
+    private final PreguntaRepository preguntaRepository;
+
     @Autowired
     private PagoRepository pagoRepository;
 
 
     @Autowired
     private TarjetaRepository tarjetaRepository;
+
+    PagoService(PreguntaRepository preguntaRepository) {
+        this.preguntaRepository = preguntaRepository;
+    }
 
    public String realizarPago(Pago pago) {
     if (pago.getTarjeta() == null || pago.getTarjeta().getId() == 0){
@@ -39,9 +46,11 @@ public class PagoService {
 }
 
 
-    public Pago buscarPago(int id){
+    public Pago buscarPagoPorId(int id) {
         return pagoRepository.findById(id).orElse(null);
     }
+
+
     
     public String eliminarPago(int id){
         Pago pago = pagoRepository.findById(id).orElse(null);

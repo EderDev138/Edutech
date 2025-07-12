@@ -1,7 +1,7 @@
 package com.edutech.apiedutech.controller;
 
+import com.edutech.apiedutech.dto.TarjetaValidacionDTO;
 import com.edutech.apiedutech.model.Tarjeta;
-import com.edutech.apiedutech.model.Usuario;
 import com.edutech.apiedutech.service.TarjetaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +16,26 @@ public class TarjetaController {
     private TarjetaService tarjetaService;
 
     @PostMapping("/validar")
-    public Tarjeta validarTarjeta(@RequestBody Tarjeta tarjeta, @RequestBody Usuario usuario) {
-        return tarjetaService.validarTarjeta(tarjeta, usuario);
-
+    public ResponseEntity<?> validarTarjeta(@RequestBody TarjetaValidacionDTO datos) {
+        try {
+            Tarjeta tarjetaValida = tarjetaService.validarTarjeta(datos.getTarjeta(), datos.getUsuario());
+            return ResponseEntity.ok(tarjetaValida);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
-@PostMapping("/agregar")
-public ResponseEntity<String> agregarTarjeta(@RequestBody Tarjeta tarjeta) {
-    String respuesta = tarjetaService.agregarTarjeta(tarjeta);
-    return ResponseEntity.ok(respuesta);
-}
 
-@DeleteMapping("/eliminar/{id}")
-public ResponseEntity<String> eliminarTarjeta(@PathVariable int id) {
-    String respuesta = tarjetaService.eliminarTarjeta(id);
-    return ResponseEntity.ok(respuesta);
-}
+    @PostMapping("/agregar")
+    public ResponseEntity<String> agregarTarjeta(@RequestBody Tarjeta tarjeta) {
+        String respuesta = tarjetaService.agregarTarjeta(tarjeta);
+        return ResponseEntity.ok(respuesta);
+    }
+
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<String> eliminarTarjeta(@PathVariable int id) {
+        String respuesta = tarjetaService.eliminarTarjeta(id);
+        return ResponseEntity.ok(respuesta);
+    }
 
 }        

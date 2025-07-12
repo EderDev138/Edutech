@@ -26,17 +26,27 @@ public class RespuestaService {
     }
 
     public Respuesta guardarRespuesta(Respuesta respuesta) {
+        if (respuesta == null || respuesta.getPregunta() == null || respuesta.getPregunta().getId() == 0) {
+            throw new IllegalArgumentException("Debe asociar una pregunta válida.");
+        }
+
+        boolean preguntaExiste = preguntaRepository.existsById(respuesta.getPregunta().getId());
+
+        if (!preguntaExiste) {
+            throw new IllegalArgumentException("La pregunta asociada no existe.");
+        }
+
         return respuestaRepository.save(respuesta);
-    }    
+    }
+
 
     public String eliminarRespuesta(int id) {
-        Respuesta respuesta = respuestaRepository.findById(id).orElse(null);
-
-        if (respuesta != null) {
-            respuestaRepository.delete(respuesta);
-            return "Respuesta eliminada con éxito";
-        } else {
-            return "La respuesta no existe";
+        if (!respuestaRepository.existsById(id)) {
+            return "La respuesta con ID " + id + " no existe.";
         }
+
+        respuestaRepository.deleteById(id);
+        return "Respuesta con ID " + id + " eliminada exitosamente.";
     }
+
 }
