@@ -39,7 +39,7 @@ public class AdministradorController {
     }
     @DeleteMapping("/eliminar/Usuario/{id}")
     public String eliminarUsuario(@PathVariable String id){
-        return administradorService.eliminarProfesor(id);
+        return administradorService.eliminarUsuario(id);
     }
 
     @GetMapping()

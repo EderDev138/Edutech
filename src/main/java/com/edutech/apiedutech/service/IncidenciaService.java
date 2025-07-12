@@ -24,7 +24,7 @@ public class IncidenciaService {
 
     public String crearIncidencia(Incidencia incidencia){
         incidenciaRepository.save(incidencia);
-        return "Incidencia guardada";
+        return "Se guardó tu incidencia, por favor anota el id: " + incidencia.getId()+" para seguimiento.";
     }
 
     public Incidencia encontrarIncidencia(Long id){
