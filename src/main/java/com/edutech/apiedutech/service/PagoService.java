@@ -23,15 +23,21 @@ public class PagoService {
     @Autowired
     private TarjetaRepository tarjetaRepository;
 
-    public String realizarPago(Pago pago){
-        Optional<Tarjeta> tarjeta = tarjetaRepository.findById(pago.getTarjeta().getId());
-        if (tarjeta.isEmpty()){
-            return "La tarjeta no existe";
-        }else{
-            pagoRepository.save(pago);
-            return "Pago guardado con éxito";
-        }
+   public String realizarPago(Pago pago) {
+    if (pago.getTarjeta() == null || pago.getTarjeta().getId() == 0){
+        return "Debe proporcionar una tarjeta válida con ID";
     }
+
+    Optional<Tarjeta> tarjeta = tarjetaRepository.findById(pago.getTarjeta().getId());
+    if (tarjeta.isEmpty()) {
+        return "La tarjeta no existe";
+    }
+
+    pago.setTarjeta(tarjeta.get()); // Asegura que se guarda con la entidad persistida
+    pagoRepository.save(pago);
+    return "Pago guardado con éxito";
+}
+
 
     public Pago buscarPago(int id){
         return pagoRepository.findById(id).orElse(null);
